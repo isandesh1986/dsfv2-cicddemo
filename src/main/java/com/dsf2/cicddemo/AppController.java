@@ -9,6 +9,6 @@ public class AppController {
 	
 	@RequestMapping("/")
 	public String hello() {
-		return "<h3>Hello from DSF V2 CICD Demo on Jenkins on nKaas</h3>";
+		return "<h3>Hello from DSF V2 CICD Demo on Jenkins on nKaas</h3> <h3>Tested Webhooks successfully.</h3>";
 	}
 }
