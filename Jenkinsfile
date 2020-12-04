@@ -21,5 +21,10 @@ pipeline {
                 sh 'mvn clean install'
             }
         }
+        stage('Build Docker Image') {
+            steps {				
+                sh 'docker build -t dsfv2-cicddemo-001 .'
+            }
+        }
     }
 }
