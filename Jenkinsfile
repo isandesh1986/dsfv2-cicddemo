@@ -23,7 +23,7 @@ pipeline {
         }
         stage('Build Docker Image') {
             steps {				
-                sh 'docker build -t dsfv2-cicddemo-001 .'
+                docker.build("dsfv2-cicddemo-001")
             }
         }
     }
