@@ -17,13 +17,13 @@ pipeline {
         }
         stage('Build') {
             steps {
-				checkout scm
-                sh 'mvn clean install'
+				        checkout scm
+                #sh 'mvn clean install'
             }
         }
-        stage('Build Docker Image') {
-            steps {				
-                docker.build("dsfv2-cicddemo-001")
+        stage('publish docker') {
+        withCredentials([usernamePassword(credentialsId: 'docker-hub-id', passwordVariable: 'DOCKER_HUB_ID_USER', usernameVariable: 'DOCKER_HUB_ID_PWD')]) {
+            sh "mvn package -Pdocker"        
             }
         }
     }
