@@ -43,10 +43,42 @@
 				<groupId>org.springframework.boot</groupId>
 				<artifactId>spring-boot-maven-plugin</artifactId>
 			</plugin>
+      <plugin>
+        <groupId>com.google.cloud.tools</groupId>
+        <artifactId>jib-maven-plugin</artifactId>
+        <version>2.6.0</version>
+        <configuration>
+          <from>
+            <image>adoptopenjdk/openjdk11:jre-11.0.4_11-alpine</image>
+          </from>
+          <to>
+            <image>isandesh/cicddemo:${project.version}</image>
+            <auth>
+              <username>${env.DOCKER_HUB_ID_USR}</username>
+              <password>${env.DOCKER_HUB_ID_PSW}</password>
+            </auth> 
+          </to>
+          <container>
+            <mainClass>com.dsf2.cicddemo.CicddemoApplication</mainClass>
+            <ports>
+              <port>8081</port>
+            </ports>
+            <format>OCI</format>
+          </container>
+        </configuration>
+        <executions>
+          <execution>
+            <phase>package</phase>
+            <goals>
+              <goal>build</goal>
+            </goals>
+          </execution>
+        </executions>
+      </plugin>
 		</plugins>
 	</build>
   
-  <profiles>
+  <!-- <profiles>
     <profile>
       <id>docker</id>
       <build>
@@ -86,5 +118,5 @@
         </plugins>
       </build>
     </profile>
-  </profiles>
+  </profiles> -->
 </project>
