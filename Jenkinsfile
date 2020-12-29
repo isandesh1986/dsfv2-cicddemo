@@ -4,6 +4,9 @@ pipeline {
         maven 'Maven3' 
         jdk 'jdk8' 
     }
+    environment {
+      DOCKER_HUB_ID = credentials('docker_hub_id')
+    }
     stages {
         stage('Hello') {
             steps {
