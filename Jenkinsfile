@@ -8,8 +8,8 @@ pipeline {
         stage('Hello') {
             steps {
                 echo 'Hello World'
-                echo ${DOCKER_HUB_ID_USR}
-                echo ${DOCKER_HUB_ID_PSW}
+                echo "${DOCKER_HUB_ID_USR}"
+                echo "${DOCKER_HUB_ID_PSW}"
             }
         }
         stage('Test Maven') {
