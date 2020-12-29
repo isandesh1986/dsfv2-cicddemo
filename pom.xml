@@ -61,10 +61,10 @@
               </from>
               <to>
                 <image>isandesh/cicddemo:${project.version}</image>
-                <auth>
+                <!-- <auth>
                   <username>${env.DOCKER_HUB_ID_USR}</username>
                   <password>${env.DOCKER_HUB_ID_PSW}</password>
-                </auth>
+                </auth> -->
               </to>
               <container>
                 <mainClass>com.dsf2.cicddemo.CicddemoApplication</mainClass>
