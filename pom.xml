@@ -62,8 +62,8 @@
               <to>
                 <image>isandesh/cicddemo:${project.version}</image>
                 <auth>
-                  <username>${DOCKER_HUB_ID_USER}</username>
-                  <password>${DOCKER_HUB_ID_PWD}</password>
+                  <username>${DOCKER_HUB_ID_USR}</username>
+                  <password>${DOCKER_HUB_ID_PSW}</password>
                 </auth>
               </to>
               <container>
