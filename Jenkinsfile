@@ -28,7 +28,7 @@ pipeline {
         }
         stage('publish docker') {
         steps {
-          withCredentials([usernamePassword(credentialsId: 'docker_hub_id', passwordVariable: 'DOCKER_HUB_ID_USR', usernameVariable: 'DOCKER_HUB_ID_PSW')]) {
+          withCredentials([usernamePassword(credentialsId: 'docker_hub_id', passwordVariable: 'DOCKER_HUB_ID_PSW', usernameVariable: 'DOCKER_HUB_ID_USR')]) {
               sh "mvn package -Pdocker"        
               }
             }
