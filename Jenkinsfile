@@ -26,13 +26,19 @@ pipeline {
                 //sh 'mvn clean install'
             }
         }
-        stage('publish docker') {
-        steps {
-          withCredentials([usernamePassword(credentialsId: 'docker_hub_id', passwordVariable: 'DOCKER_HUB_ID_PSW', usernameVariable: 'DOCKER_HUB_ID_USR')]) {
-              sh "mvn compile jib:build"
-              //-Djib.to.auth.username=${DOCKER_HUB_ID_USR} -Djib.to.auth.password=${DOCKER_HUB_ID_PSW}
+        stage('Build and Push the container image to docker hub registry') {
+          steps {
+            withCredentials([usernamePassword(credentialsId: 'docker_hub_id', passwordVariable: 'DOCKER_HUB_ID_PSW', usernameVariable: 'DOCKER_HUB_ID_USR')]) {
+                sh "mvn compile jib:build"
+                }
               }
-            }
+        }
+        stage('Install Kubectl'){
+          steps {
+             sh 'curl -LO "https://storage.googleapis.com/kubernetes-release/release/$(curl -s https://storage.googleapis.com/kubernetes-release/release/stable.txt)/bin/linux/amd64/kubectl"'  
+             sh 'chmod u+x ./kubectl'
+             sh 'kubectl version' 
+          }
         }
     }
 }
