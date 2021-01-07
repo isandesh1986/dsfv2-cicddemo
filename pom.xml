@@ -44,6 +44,23 @@
 				<artifactId>spring-boot-maven-plugin</artifactId>
 			</plugin>
       <plugin>
+        <groupId>org.eclipse.jkube</groupId>
+        <artifactId>kubernetes-maven-plugin</artifactId>
+        <version>1.0.2</version>
+        <configuration>
+      <images>
+        <image>
+          <name>docker.io/isandesh/cicddemo:${project.version}</name>
+          <alias>hello-world</alias>
+          <build>
+            <from>adoptopenjdk/openjdk11:jre-11.0.4_11-alpine</from>
+            <cmd>java -jar maven/${project.artifactId}-${project.version}.jar</cmd>
+          </build>
+        </image>
+      </images>
+    </configuration>
+      </plugin>
+      <!-- <plugin>
         <groupId>com.google.cloud.tools</groupId>
         <artifactId>jib-maven-plugin</artifactId>
         <version>2.6.0</version>
@@ -74,7 +91,7 @@
             </goals>
           </execution>
         </executions>
-      </plugin>
+      </plugin> -->
 		</plugins>
 	</build>
 </project>
