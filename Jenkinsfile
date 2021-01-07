@@ -41,8 +41,10 @@ pipeline {
           }
         }
 
-        stage {
-            
-        }
+        //stage('Deploy sample app') {
+            //steps {
+                //sh './kubectl apply -f '
+           // }
+        //}
     }
 }
