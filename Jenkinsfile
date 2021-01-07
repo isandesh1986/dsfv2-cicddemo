@@ -40,5 +40,9 @@ pipeline {
              sh './kubectl version' 
           }
         }
+
+        stage {
+            
+        }
     }
 }

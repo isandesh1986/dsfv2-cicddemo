@@ -1,0 +1,27 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: cicddemo-deployment
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: cicddemo
+  template:
+    metadata:
+      labels:
+        app: cicddemo
+    spec:
+      securityContext:
+        runAsUser: 1000
+      hostname: cicddemo  
+      containers:
+        - name: cicddemo
+          image: isandesh/cicddemo:0.0.1-SNAPSHOT
+          resources:
+            limits:
+              memory: "2048Mi"
+              cpu: "1000m"
+          ports:
+            - containerPort: 8090
+          

@@ -81,6 +81,9 @@
               <port>8081</port>
             </ports>
             <format>OCI</format>
+            <entrypoint>
+              <arg>java ${JAVA_OPTS} com.dsf2.cicddemo.CicddemoApplication</arg>
+            </entrypoint>
           </container>
         </configuration>
         <executions>

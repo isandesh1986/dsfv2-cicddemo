@@ -1,0 +1,18 @@
+apiVersion: extensions/v1beta1
+kind: Ingress
+metadata:
+  name: cicddemo-ingress
+  annotations:
+    kubernetes.io/ingress.class: ingress-public
+spec:
+  tls:
+  - hosts:
+    - devoncicd.demo.xpaas.io
+  rules:
+  - host: devoncicd.demo.xpaas.io
+    http:
+      paths:
+      - path: /
+        backend:
+          serviceName: cicddemo
+          servicePort: 8090
