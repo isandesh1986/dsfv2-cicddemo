@@ -17,7 +17,7 @@ spec:
       hostname: cicddemo  
       containers:
         - name: cicddemo
-          image: isandesh/cicddemo:0.0.1-SNAPSHOT
+          image: isandesh/cicddemo1:latest
           resources:
             limits:
               memory: "2048Mi"
